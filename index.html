@@ -1,0 +1,76 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+<title>Есть контакт!</title> 
+<script>
+$(document).ready(function(){
+  function myFunction() {
+  var x1 = document.getElementById("word1");
+  var x2 = document.getElementById("word2");
+  if (x1.type === "password") {
+    x1.type = "text";
+  }
+  if (x2.type === "password") {
+    x2.type = "text";
+  }
+};
+  function myFunction1() {
+  var x1 = document.getElementById("word1");
+  if (x1.type === "text") {
+    x1.type = "password";
+  }
+  x1.value = "";
+};
+  function myFunction2() {
+  var x2 = document.getElementById("word2");
+  if (x2.type === "text") {
+    x2.type = "password";
+  }
+  x2.value = "";
+};
+   $("#reset1").click(myFunction1);
+   $("#reset2").click(myFunction2);
+  $("#startClock").click( function(){
+   console.log("click")
+   var counter = 5;
+   setInterval(function() {
+     counter--;
+      if (counter >= 0) {
+         span = document.getElementById("count");
+         span.innerHTML = counter;
+      }
+      if (counter === 0) {
+         // alert('sorry, out of time');
+         myFunction() 
+         clearInterval(counter);
+       }
+     }, 1000);
+});
+});
+</script>
+</head> 
+<body>
+
+<p> <label for="wished">Загаданное слово:</label>
+<input type="text" id="wished" name="wished"><br></p>
+
+<p><label for="Lnum">Кол-во букв:</label>
+<input type="text" id="Lnum" name="Lnum"><br></p>
+
+<p> <button id="startClock" type="button">Есть контакт!</button>
+<span id="count">  </span></p> 
+
+
+<p> <label for="word1">Слово:</label>
+<input type="password" id="word1" name="word1">
+<button id= "reset1">X</button> <br></p>
+
+
+<p> <label for="word2">Отгадка:</label>
+<input type="password" id="word2" name="word2">
+<button id= "reset2">X</button> <br></p>
+
+
+</body> 
+</html> 
